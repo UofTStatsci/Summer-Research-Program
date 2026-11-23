@@ -24,7 +24,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 88px;
+  scroll-padding-top: 105px;
 }
 
 body {
@@ -109,9 +109,9 @@ h2 {
 }
 
 
-/* HEADER */
-
-/* HEADER */
+/* =========================================
+   HEADER AND DEPARTMENT LOGO
+   ========================================= */
 
 .site-header {
   position: absolute;
@@ -123,7 +123,7 @@ h2 {
 }
 
 .nav-bar {
-  min-height: 100px;
+  min-height: 105px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -131,30 +131,35 @@ h2 {
 }
 
 /* Logo container */
+
 .brand {
   display: flex;
   align-items: center;
-  flex: 0 0 260px;
-  width: 260px;
+  flex: 0 0 280px;
+  width: 280px;
   min-width: 0;
   text-decoration: none;
 }
 
-/* Department logo */
+/* Department logo image */
+
 .brand-logo {
   display: block;
-  width: 260px;
-  max-width: 100%;
-  max-height: 65px;
+  width: 100%;
   height: auto;
+  max-height: 68px;
   object-fit: contain;
   object-position: left center;
 }
 
+/* Navigation */
+
 .nav-links {
   display: flex;
+  flex: 1 1 auto;
   align-items: center;
-  gap: 29px;
+  justify-content: flex-end;
+  gap: 25px;
 }
 
 .nav-links a {
@@ -162,6 +167,7 @@ h2 {
   font-size: .88rem;
   font-weight: 600;
   text-decoration: none;
+  white-space: nowrap;
   transition: color .2s ease;
 }
 
@@ -182,10 +188,13 @@ h2 {
   background: rgba(54,169,239,.14);
 }
 
+/* Mobile menu button */
+
 .menu-toggle {
   display: none;
   width: 44px;
   height: 44px;
+  flex: 0 0 44px;
   border: 1px solid var(--line);
   border-radius: 50%;
   color: white;
@@ -205,7 +214,10 @@ h2 {
   transition: transform .2s ease, opacity .2s ease;
 }
 
-/* HERO AND BANNER */
+
+/* =========================================
+   HERO AND BANNER
+   ========================================= */
 
 .hero {
   position: relative;
@@ -214,7 +226,11 @@ h2 {
   align-items: center;
   overflow: hidden;
   isolation: isolate;
-  background: #050912 url("/Summer-Research-Program/assets/utssrp-banner.jpg") center 44% / cover no-repeat;
+
+  background:
+    #050912
+    url("/Summer-Research-Program/assets/utssrp-banner.jpg")
+    center 44% / cover no-repeat;
 }
 
 .hero-banner {
@@ -232,6 +248,7 @@ h2 {
   z-index: -1;
   inset: 0;
   content: "";
+
   background:
     linear-gradient(
       90deg,
@@ -254,6 +271,7 @@ h2 {
   inset: auto 0 0;
   height: 1px;
   content: "";
+
   background: linear-gradient(
     90deg,
     transparent,
@@ -265,7 +283,7 @@ h2 {
 
 .hero-content {
   width: min(760px, 100%);
-  padding: 160px 0 112px;
+  padding: 175px 0 112px;
 }
 
 .hero-kicker {
@@ -310,7 +328,9 @@ h2 {
 }
 
 
-/* BUTTONS */
+/* =========================================
+   BUTTONS
+   ========================================= */
 
 .button-row {
   display: flex;
@@ -330,7 +350,10 @@ h2 {
   font-size: .92rem;
   font-weight: 700;
   text-decoration: none;
-  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+  transition:
+    transform .2s ease,
+    background .2s ease,
+    border-color .2s ease;
 }
 
 .button:hover {
@@ -364,7 +387,9 @@ h2 {
 }
 
 
-/* HERO FACTS */
+/* =========================================
+   HERO FACTS
+   ========================================= */
 
 .hero-facts {
   display: flex;
@@ -400,7 +425,9 @@ h2 {
 }
 
 
-/* INTRO STRIP */
+/* =========================================
+   INTRO STRIP
+   ========================================= */
 
 .intro-strip {
   padding: 75px 0 82px;
@@ -435,7 +462,9 @@ h2 {
 }
 
 
-/* COMMON SECTIONS */
+/* =========================================
+   COMMON SECTIONS
+   ========================================= */
 
 .section {
   padding: 105px 0;
@@ -475,7 +504,9 @@ h2 {
 }
 
 
-/* EXPERIENCE CARDS */
+/* =========================================
+   EXPERIENCE CARDS
+   ========================================= */
 
 .experience-grid {
   display: grid;
@@ -490,7 +521,12 @@ h2 {
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: linear-gradient(145deg, rgba(23,38,58,.96), rgba(12,22,36,.96));
+  background:
+    linear-gradient(
+      145deg,
+      rgba(23,38,58,.96),
+      rgba(12,22,36,.96)
+    );
 }
 
 .experience-card::after {
@@ -502,6 +538,7 @@ h2 {
   border: 1px solid rgba(54,169,239,.18);
   border-radius: 50%;
   content: "";
+
   box-shadow:
     0 0 0 20px rgba(54,169,239,.025),
     0 0 0 42px rgba(241,123,114,.025);
@@ -532,7 +569,9 @@ h2 {
 }
 
 
-/* OUTCOMES */
+/* =========================================
+   OUTCOMES
+   ========================================= */
 
 .outcomes {
   display: grid;
@@ -588,9 +627,15 @@ h2 {
   overflow: hidden;
   border: 1px solid rgba(54,169,239,.26);
   border-radius: 24px;
+
   background:
-    radial-gradient(circle at 100% 0%, rgba(54,169,239,.17), transparent 42%),
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(54,169,239,.17),
+      transparent 42%
+    ),
     linear-gradient(145deg, #15263b, #0e1726);
+
   box-shadow: var(--shadow);
 }
 
@@ -619,7 +664,9 @@ h2 {
 }
 
 
-/* 2027 TOPICS */
+/* =========================================
+   2027 TOPICS
+   ========================================= */
 
 .topics-panel {
   display: grid;
@@ -670,7 +717,9 @@ h2 {
 }
 
 
-/* AUDIENCE */
+/* =========================================
+   AUDIENCE
+   ========================================= */
 
 .audience-wrap {
   display: grid;
@@ -735,10 +784,13 @@ h2 {
 }
 
 
-/* APPLICATION */
+/* =========================================
+   APPLICATION
+   ========================================= */
 
 .application {
   padding: 94px 0;
+
   background: linear-gradient(
     115deg,
     #12314b 0%,
@@ -782,7 +834,9 @@ h2 {
 }
 
 
-/* FOOTER */
+/* =========================================
+   FOOTER
+   ========================================= */
 
 .site-footer {
   padding: 36px 0;
@@ -826,12 +880,16 @@ h2 {
 }
 
 
-/* MOTION AND ACCESSIBILITY */
+/* =========================================
+   MOTION AND ACCESSIBILITY
+   ========================================= */
 
 .reveal {
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity .65s ease, transform .65s ease;
+  transition:
+    opacity .65s ease,
+    transform .65s ease;
 }
 
 .reveal.is-visible {
@@ -858,12 +916,31 @@ button:focus-visible {
 }
 
 
-/* TABLET */
+/* =========================================
+   TABLET
+   ========================================= */
 
 @media (max-width: 960px) {
 
+  .nav-bar {
+    gap: 20px;
+  }
+
+  .brand {
+    flex: 0 0 240px;
+    width: 240px;
+  }
+
+  .brand-logo {
+    max-height: 62px;
+  }
+
   .nav-links {
-    gap: 18px;
+    gap: 15px;
+  }
+
+  .nav-links a {
+    font-size: .81rem;
   }
 
   .hero {
@@ -886,7 +963,9 @@ button:focus-visible {
 }
 
 
-/* MOBILE */
+/* =========================================
+   MOBILE
+   ========================================= */
 
 @media (max-width: 720px) {
 
@@ -894,36 +973,36 @@ button:focus-visible {
     width: min(100% - 38px, var(--max));
   }
 
+  /* Mobile header */
+
   .nav-bar {
-  min-height: 85px;
-}
+    min-height: 88px;
+  }
 
-.brand {
-  flex: 0 0 220px;
-  width: 220px;
-  max-width: calc(100% - 60px);
-}
+  .brand {
+    flex: 0 0 220px;
+    width: 220px;
+    max-width: calc(100% - 60px);
+  }
 
-.brand {
-  flex: 0 0 190px;
-  width: 190px;
-  max-width: calc(100% - 58px);
-}
-
-.brand-logo {
-  max-height: 52px;
-}
+  .brand-logo {
+    width: 100%;
+    max-height: 58px;
+  }
 
   .menu-toggle {
     display: block;
     z-index: 22;
   }
 
+  /* Mobile navigation menu */
+
   .nav-links {
     position: fixed;
     z-index: 21;
     inset: 0;
     display: flex;
+    flex: none;
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
@@ -933,7 +1012,10 @@ button:focus-visible {
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
-    transition: opacity .22s ease, transform .22s ease, visibility .22s ease;
+    transition:
+      opacity .22s ease,
+      transform .22s ease,
+      visibility .22s ease;
   }
 
   .nav-links.is-open {
@@ -966,6 +1048,8 @@ button:focus-visible {
     transform: translateY(-6px) rotate(-45deg);
   }
 
+  /* Mobile hero */
+
   .hero {
     min-height: 735px;
   }
@@ -976,12 +1060,20 @@ button:focus-visible {
 
   .hero::before {
     background:
-      linear-gradient(90deg, rgba(4,8,15,.95), rgba(4,8,15,.72)),
-      linear-gradient(0deg, rgba(4,8,15,.92), transparent 65%);
+      linear-gradient(
+        90deg,
+        rgba(4,8,15,.95),
+        rgba(4,8,15,.72)
+      ),
+      linear-gradient(
+        0deg,
+        rgba(4,8,15,.92),
+        transparent 65%
+      );
   }
 
   .hero-content {
-    padding: 145px 0 74px;
+    padding: 155px 0 74px;
   }
 
   .hero h1 {
@@ -1002,6 +1094,8 @@ button:focus-visible {
     padding-left: 0;
     border-left: 0;
   }
+
+  /* Mobile sections */
 
   .intro-strip,
   .section {
@@ -1049,6 +1143,8 @@ button:focus-visible {
     grid-template-columns: 1fr;
   }
 
+  /* Mobile application */
+
   .application {
     padding: 72px 0;
   }
@@ -1061,6 +1157,8 @@ button:focus-visible {
     max-width: 330px;
   }
 
+  /* Mobile footer */
+
   .footer-inner {
     align-items: flex-start;
     flex-direction: column;
@@ -1069,13 +1167,21 @@ button:focus-visible {
 }
 
 
-/* SMALL MOBILE */
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
 
 @media (max-width: 420px) {
 
+  .brand {
+    flex: 0 0 195px;
+    width: 195px;
+    max-width: calc(100% - 58px);
+  }
+
   .brand-logo {
-    width: 190px;
-    max-height: 46px;
+    width: 100%;
+    max-height: 52px;
   }
 
   .hero {
@@ -1111,7 +1217,9 @@ button:focus-visible {
 }
 
 
-/* REDUCED MOTION */
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
