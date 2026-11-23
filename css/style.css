@@ -140,7 +140,7 @@ h2 {
   display: block;
   width: 225px;
   max-width: 100%;
-  max-height: 47px;
+  max-height: 55px;
   height: auto;
   object-fit: contain;
   object-position: left center;
@@ -1055,7 +1055,7 @@ button:focus-visible {
 
   .brand-logo {
     width: 190px;
-    max-height: 40px;
+    max-height: 46px;
   }
 
   .hero {
