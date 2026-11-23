@@ -111,6 +111,8 @@ h2 {
 
 /* HEADER */
 
+/* HEADER */
+
 .site-header {
   position: absolute;
   z-index: 20;
@@ -121,26 +123,29 @@ h2 {
 }
 
 .nav-bar {
-  min-height: 82px;
+  min-height: 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 28px;
 }
 
+/* Logo container */
 .brand {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  flex: 0 0 auto;
+  flex: 0 0 260px;
+  width: 260px;
   min-width: 0;
   text-decoration: none;
 }
 
+/* Department logo */
 .brand-logo {
   display: block;
-  width: 225px;
+  width: 260px;
   max-width: 100%;
-  max-height: 55px;
+  max-height: 65px;
   height: auto;
   object-fit: contain;
   object-position: left center;
@@ -199,7 +204,6 @@ h2 {
   background: currentColor;
   transition: transform .2s ease, opacity .2s ease;
 }
-
 
 /* HERO AND BANNER */
 
@@ -891,8 +895,24 @@ button:focus-visible {
   }
 
   .nav-bar {
-    min-height: 72px;
-  }
+  min-height: 85px;
+}
+
+.brand {
+  flex: 0 0 220px;
+  width: 220px;
+  max-width: calc(100% - 60px);
+}
+
+.brand {
+  flex: 0 0 190px;
+  width: 190px;
+  max-width: calc(100% - 58px);
+}
+
+.brand-logo {
+  max-height: 52px;
+}
 
   .menu-toggle {
     display: block;
