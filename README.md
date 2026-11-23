@@ -1,2 +1,1 @@
-# Summer-Research-Program
-Official website for the 2027 University of Toronto Statistical Sciences Research Program (UTSSRP), a two-week summer research experience for undergraduate students interested in statistical sciences, data analysis and research.
+The Statistical Sciences Research Program (UTSSRP) invites Canada’s top statistics, data sciences, and mathematics undergraduates to engage in a transformative research experience. This program provides a unique blend of theoretical study and practical research, supervised by some of the foremost academics in the field.
