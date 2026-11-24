@@ -235,7 +235,6 @@ h2 {
   z-index: -1;
   inset: 0;
   content: "";
-
   background:
     linear-gradient(
       90deg,
@@ -409,6 +408,37 @@ h2 {
 
 
 /* =========================================
+   FULL-WIDTH PHOTOGRAPH SECTIONS
+   ========================================= */
+
+.photo-band {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: clamp(300px, 38vw, 520px);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #17263a;
+}
+
+.photo-band img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Individual image positioning */
+
+.photo-band:nth-of-type(2) img {
+  object-position: center 45%;
+}
+
+
+/* =========================================
    ABOUT UTSSRP
    ========================================= */
 
@@ -447,66 +477,6 @@ h2 {
 
 .intro-copy p:last-child {
   margin-bottom: 0;
-}
-
-
-/* =========================================
-   EDITORIAL PHOTOGRAPHS
-   ========================================= */
-
-.editorial-photo {
-  width: 100%;
-  margin: 55px 0 0;
-  overflow: hidden;
-  border-radius: 16px;
-  background: #17263a;
-  box-shadow: 0 12px 35px rgba(0,0,0,.13);
-}
-
-.editorial-photo img {
-  display: block;
-  width: 100%;
-  height: 390px;
-  object-fit: cover;
-  object-position: center;
-}
-
-.editorial-photo figcaption {
-  padding: 10px 15px;
-  color: #9eabbc;
-  background: #101b2a;
-  font-size: .76rem;
-  line-height: 1.5;
-}
-
-/* About photograph */
-
-.about-photo img {
-  height: 420px;
-  object-position: center 45%;
-}
-
-/* Who should apply photograph */
-
-.audience-photo {
-  margin-top: 35px;
-}
-
-.audience-photo img {
-  height: 380px;
-  object-position: center 40%;
-}
-
-/* Closing application photograph */
-
-.application-photo {
-  margin-top: 38px;
-  margin-bottom: 32px;
-}
-
-.application-photo img {
-  height: 380px;
-  object-position: center 45%;
 }
 
 
@@ -762,13 +732,8 @@ h2 {
    WHO SHOULD APPLY
    ========================================= */
 
-.audience-wrap {
-  max-width: 1000px;
-}
-
 .audience-intro {
   max-width: 850px;
-  margin-bottom: 0;
 }
 
 .audience-intro h2 {
@@ -812,12 +777,6 @@ h2 {
   font-weight: 700;
 }
 
-.audience-footnote {
-  margin: 18px 0 0;
-  color: #92a0b3;
-  font-size: .83rem;
-}
-
 .share-note {
   padding: 22px 23px;
   border-left: 3px solid var(--coral);
@@ -837,6 +796,12 @@ h2 {
   margin: 0;
   color: #c2ccda;
   font-size: .9rem;
+}
+
+.audience-footnote {
+  margin: 22px 0 0;
+  color: #92a0b3;
+  font-size: .83rem;
 }
 
 
@@ -870,12 +835,9 @@ h2 {
   font-size: 1.05rem;
 }
 
-.application-photo img {
-  height: 400px;
-}
-
 .application-action {
   max-width: 310px;
+  margin-top: 30px;
 }
 
 .application-action .button {
@@ -959,7 +921,6 @@ button:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
-
   html {
     scroll-behavior: auto;
   }
@@ -1157,25 +1118,15 @@ button:focus-visible {
     max-width: 650px;
   }
 
-  .editorial-photo {
-    margin-top: 34px;
-    border-radius: 12px;
+  /* Full-width photos remain edge-to-edge on mobile */
+
+  .photo-band {
+    height: 270px;
   }
 
-  .editorial-photo img {
-    height: 250px;
-  }
-
-  .about-photo img {
-    height: 280px;
-  }
-
-  .audience-photo img {
-    height: 250px;
-  }
-
-  .application-photo img {
-    height: 250px;
+  .photo-band img {
+    width: 100%;
+    height: 100%;
   }
 
   .section-heading {
@@ -1286,5 +1237,9 @@ button:focus-visible {
 
   .card-number {
     margin-bottom: 22px;
+  }
+
+  .photo-band {
+    height: 220px;
   }
 }
