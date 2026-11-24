@@ -433,8 +433,16 @@ h2 {
 
 /* Individual image positioning */
 
-.photo-band:nth-of-type(2) img {
-  object-position: center 45%;
+.photo-band img[src*="utssrp-group-photo"] {
+  object-position: center 20%;
+}
+
+.photo-band img[src*="utssrp-apply-photo"] {
+  object-position: center 80%;
+}
+
+.photo-band img[src*="utssrp-research-photo"] {
+  object-position: center 50%;
 }
 
 
