@@ -451,7 +451,7 @@ h2 {
 /* About section image placeholder */
 
 .about-background {
-  background-image:
+  background-image: url("../assets/utssrp-group-photo.jpg");
     linear-gradient(135deg, #1a344d, #101a2a);
   background-position: center 45%;
 
@@ -463,7 +463,7 @@ h2 {
 /* Who should apply image placeholder */
 
 .audience-background {
-  background-image:
+  background-image: url("../assets/utssrp-apply-photo.jpg");
     linear-gradient(135deg, #24354a, #101a2a);
   background-position: center 40%;
 
@@ -475,7 +475,7 @@ h2 {
 /* Application section image placeholder */
 
 .application-background {
-  background-image:
+  background-image: url("../assets/utssrp-research-photo.jpg");
     linear-gradient(135deg, #193c55, #211b2d);
   background-position: center 45%;
 
