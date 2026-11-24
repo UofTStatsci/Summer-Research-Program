@@ -35,7 +35,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-body.menu-open {
+body.menu-open,
+body.modal-open {
   overflow: hidden;
 }
 
@@ -335,6 +336,7 @@ h2 {
   font-size: .92rem;
   font-weight: 700;
   text-decoration: none;
+  cursor: pointer;
   transition: transform .2s ease, background .2s ease, border-color .2s ease;
 }
 
@@ -431,14 +433,14 @@ h2 {
   object-position: center;
 }
 
-/* Individual image positioning */
+/* Individual photograph positioning */
 
 .photo-band img[src*="utssrp-group-photo"] {
-  object-position: center 20%;
+  object-position: center 0%;
 }
 
 .photo-band img[src*="utssrp-apply-photo"] {
-  object-position: center 80%;
+  object-position: center 50%;
 }
 
 .photo-band img[src*="utssrp-research-photo"] {
@@ -563,6 +565,7 @@ h2 {
   border: 1px solid rgba(54,169,239,.18);
   border-radius: 50%;
   content: "";
+  pointer-events: none;
   box-shadow:
     0 0 0 20px rgba(54,169,239,.025),
     0 0 0 42px rgba(241,123,114,.025);
@@ -684,7 +687,7 @@ h2 {
 
 
 /* =========================================
-   2027 PROGRAM DETAILS
+   RESEARCH AND PROGRAM DETAILS
    ========================================= */
 
 .topics-panel {
@@ -725,6 +728,9 @@ h2 {
 }
 
 .coming-tag {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
   align-self: flex-start;
   margin-top: 20px;
   padding: 5px 10px;
@@ -806,6 +812,10 @@ h2 {
   font-size: .9rem;
 }
 
+.share-note a {
+  overflow-wrap: anywhere;
+}
+
 .audience-footnote {
   margin: 22px 0 0;
   color: #92a0b3;
@@ -844,7 +854,7 @@ h2 {
 }
 
 .application-action {
-  max-width: 310px;
+  max-width: 330px;
   margin-top: 30px;
 }
 
@@ -858,6 +868,157 @@ h2 {
   color: #a9b9ca;
   font-size: .78rem;
   text-align: center;
+}
+
+
+/* =========================================
+   APPLICATION REQUEST MODAL
+   ========================================= */
+
+.application-modal {
+  width: min(760px, calc(100% - 40px));
+  max-width: none;
+  max-height: 92vh;
+  max-height: 92dvh;
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  border: 1px solid rgba(139,215,255,.24);
+  border-radius: 22px;
+  color: var(--paper);
+  background: #111d2e;
+  box-shadow: 0 30px 100px rgba(0,0,0,.65);
+}
+
+.application-modal[open] {
+  display: flex;
+  flex-direction: column;
+  animation: modal-enter .25s ease both;
+}
+
+/* Blurred background */
+
+.application-modal::backdrop {
+  background: rgba(3,7,14,.76);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Modal entrance animation */
+
+@keyframes modal-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Modal branding and heading */
+
+.modal-header {
+  position: relative;
+  flex-shrink: 0;
+  padding: 25px 30px 24px;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  background: linear-gradient(
+    120deg,
+    #172c43,
+    #101b2b
+  );
+}
+
+.modal-logo {
+  display: block;
+  width: 220px;
+  max-width: calc(100% - 65px);
+  height: auto;
+  margin-bottom: 24px;
+}
+
+.modal-heading .eyebrow {
+  margin-bottom: 10px;
+}
+
+.modal-heading h2 {
+  max-width: 600px;
+  margin: 0 0 10px;
+  color: #ffffff;
+  font-size: clamp(1.55rem, 3.5vw, 2.15rem);
+}
+
+.modal-heading p:not(.eyebrow) {
+  margin: 0;
+  color: #c3cfdd;
+  font-size: .9rem;
+}
+
+/* Close button */
+
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 50%;
+  color: #ffffff;
+  background: rgba(255,255,255,.06);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+
+.modal-close:hover {
+  background: rgba(255,255,255,.16);
+}
+
+/* Microsoft Forms embed */
+
+.modal-form-container {
+  flex: 1 0 auto;
+  min-width: 0;
+  padding: 0;
+  background: #ffffff;
+}
+
+.modal-form-container iframe {
+  display: block;
+  width: 100%;
+  height: clamp(360px, 60vh, 720px);
+  border: 0;
+  background: #ffffff;
+}
+
+/* Modal footer */
+
+.modal-footer {
+  flex-shrink: 0;
+  padding: 16px 28px;
+  border-top: 1px solid rgba(255,255,255,.12);
+  background: #0d1523;
+  text-align: center;
+}
+
+.modal-footer p {
+  margin: 0 0 6px;
+  color: #c3cfdd;
+  font-size: .76rem;
+}
+
+.modal-footer a {
+  color: var(--blue-light);
+  font-size: .76rem;
 }
 
 
@@ -929,6 +1090,7 @@ button:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   html {
     scroll-behavior: auto;
   }
@@ -1031,6 +1193,7 @@ button:focus-visible {
     position: fixed;
     z-index: 21;
     inset: 0;
+    min-height: 100dvh;
     display: flex;
     flex: none;
     flex-direction: column;
@@ -1094,7 +1257,7 @@ button:focus-visible {
   }
 
   .hero h1 {
-    font-size: clamp(3.2rem, 14vw, 5.2rem);
+    font-size: clamp(2.5rem, 10vw, 5.2rem);
   }
 
   .hero-facts {
@@ -1126,15 +1289,8 @@ button:focus-visible {
     max-width: 650px;
   }
 
-  /* Full-width photos remain edge-to-edge on mobile */
-
   .photo-band {
     height: 270px;
-  }
-
-  .photo-band img {
-    width: 100%;
-    height: 100%;
   }
 
   .section-heading {
@@ -1197,6 +1353,41 @@ button:focus-visible {
     align-items: flex-start;
     flex-direction: column;
   }
+
+  /* Mobile application modal */
+
+  .application-modal {
+    width: calc(100% - 24px);
+    max-height: 95vh;
+    max-height: 95dvh;
+    border-radius: 16px;
+  }
+
+  .modal-header {
+    padding: 20px;
+  }
+
+  .modal-logo {
+    width: 180px;
+    margin-bottom: 18px;
+  }
+
+  .modal-close {
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .modal-form-container iframe {
+    height: 65vh;
+    height: 65dvh;
+    min-height: 340px;
+  }
+
+  .modal-footer {
+    padding: 14px 18px;
+  }
 }
 
 
@@ -1222,7 +1413,7 @@ button:focus-visible {
   }
 
   .hero h1 {
-    font-size: 3rem;
+    font-size: clamp(2.2rem, 10vw, 3rem);
   }
 
   .button-row {
@@ -1249,5 +1440,13 @@ button:focus-visible {
 
   .photo-band {
     height: 220px;
+  }
+
+  .modal-heading h2 {
+    font-size: 1.5rem;
+  }
+
+  .modal-logo {
+    width: 165px;
   }
 }
