@@ -313,6 +313,10 @@ h2 {
   line-height: 1.6;
 }
 
+.hero-lede + .hero-lede {
+  margin-top: -12px;
+}
+
 
 /* =========================================
    BUTTONS
@@ -337,7 +341,10 @@ h2 {
   font-weight: 700;
   text-decoration: none;
   cursor: pointer;
-  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+  transition:
+    transform .2s ease,
+    background .2s ease,
+    border-color .2s ease;
 }
 
 .button:hover {
@@ -514,6 +521,10 @@ h2 {
   margin-bottom: 0;
 }
 
+.section-heading .section-intro + .section-intro {
+  margin-top: 16px;
+}
+
 .section-dark {
   background: var(--ink-soft);
 }
@@ -538,12 +549,13 @@ h2 {
 
 .experience-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
 }
 
 .experience-card {
   position: relative;
+  min-width: 0;
   min-height: 265px;
   padding: 28px 25px;
   overflow: hidden;
@@ -597,7 +609,7 @@ h2 {
 
 
 /* =========================================
-   OUTCOMES
+   OUTCOMES AND STUDENT TESTIMONIAL
    ========================================= */
 
 .outcomes {
@@ -656,7 +668,11 @@ h2 {
   border: 1px solid rgba(54,169,239,.26);
   border-radius: 24px;
   background:
-    radial-gradient(circle at 100% 0%, rgba(54,169,239,.17), transparent 42%),
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(54,169,239,.17),
+      transparent 42%
+    ),
     linear-gradient(145deg, #15263b, #0e1726);
   box-shadow: var(--shadow);
 }
@@ -687,44 +703,146 @@ h2 {
 
 
 /* =========================================
-   RESEARCH AND PROGRAM DETAILS
+   RESEARCH PROJECT CARDS
    ========================================= */
 
-.topics-panel {
+.research-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
 }
 
-.topic-card {
+.research-card {
   display: flex;
-  min-height: 185px;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 27px;
-  border: 1px solid rgba(22,34,53,.12);
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(22,34,53,.13);
   border-radius: var(--radius);
-  background: rgba(255,255,255,.72);
+  background: #ffffff;
+  box-shadow: 0 8px 25px rgba(22,34,53,.06);
 }
 
-.topic-card .topic-label {
+.research-card:hover,
+.research-card:focus-within {
+  border-color: #176b9e;
+  box-shadow: 0 14px 35px rgba(22,34,53,.14);
+}
+
+.research-card-link {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  flex-direction: column;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.research-card-link:focus-visible {
+  outline: 3px solid #176b9e;
+  outline-offset: -4px;
+  border-radius: var(--radius);
+}
+
+.research-visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  margin: 0;
+  padding: 12px;
+  overflow: hidden;
+  border-bottom: 1px solid #e1e7ef;
+  background: #ffffff;
+}
+
+.research-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.research-card-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.research-label {
+  display: block;
+  margin-bottom: 13px;
   color: #176b9e;
-  font-size: .73rem;
+  font-size: .72rem;
   font-weight: 700;
-  letter-spacing: .13em;
+  letter-spacing: .1em;
   text-transform: uppercase;
 }
 
-.topic-card h3 {
-  margin: 15px 0 8px;
+.research-card h3 {
+  margin-bottom: 12px;
+  color: #162235;
   font-size: 1.4rem;
 }
 
-.topic-card p {
-  max-width: 440px;
-  margin: 0;
+.research-card p {
+  margin-bottom: 18px;
+  color: #465468;
+  font-size: .94rem;
+}
+
+.research-card .research-project-title {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid #e1e7ef;
   color: #58677a;
-  font-size: .93rem;
+  font-size: .8rem;
+  font-style: italic;
+}
+
+.research-card-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: #176b9e;
+  font-size: .88rem;
+  font-weight: 700;
+}
+
+.research-card:hover .research-card-action,
+.research-card:focus-within .research-card-action {
+  text-decoration: underline;
+}
+
+.research-footnote {
+  margin-top: 28px;
+  margin-bottom: 0;
+  font-size: .9rem;
+}
+
+
+/* =========================================
+   2027 ACADEMIC PROGRAM
+   ========================================= */
+
+.program-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.program-grid .experience-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.program-grid .experience-card h3 {
+  max-width: none;
+}
+
+.program-grid .program-card-note {
+  margin-top: 18px;
+  margin-bottom: 20px;
 }
 
 .coming-tag {
@@ -739,6 +857,10 @@ h2 {
   background: #fff0d5;
   font-size: .72rem;
   font-weight: 700;
+}
+
+.program-grid .coming-tag {
+  margin-top: auto;
 }
 
 
@@ -769,27 +891,89 @@ h2 {
   margin-top: 35px;
 }
 
-.audience-points {
+
+/* =========================================
+   ACADEMIC INTEREST CARDS
+   ========================================= */
+
+.interest-grid {
   display: grid;
-  gap: 13px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 38px;
 }
 
-.audience-point {
-  display: flex;
-  align-items: flex-start;
-  gap: 13px;
-  padding: 17px 19px;
+.interest-card {
+  min-width: 0;
+  padding: 28px;
   border: 1px solid var(--line);
-  border-radius: 13px;
-  background: rgba(255,255,255,.035);
-  color: #e4eaf2;
-  font-size: .94rem;
+  border-radius: var(--radius);
+  background: linear-gradient(
+    145deg,
+    #17263a,
+    #101b2a
+  );
 }
 
-.check {
+.interest-icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  margin-bottom: 20px;
+  border: 1px solid rgba(139,215,255,.3);
+  border-radius: 13px;
   color: var(--blue-light);
-  font-weight: 700;
+  font-size: 1.5rem;
 }
+
+.interest-card h3 {
+  margin-bottom: 12px;
+  color: var(--paper);
+  font-size: 1.35rem;
+}
+
+.interest-card p {
+  margin-bottom: 0;
+  color: #c2ccda;
+  font-size: .95rem;
+}
+
+
+/* =========================================
+   ELIGIBILITY PANEL
+   ========================================= */
+
+.eligibility-panel {
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,.035);
+}
+
+.eligibility-panel .eyebrow {
+  margin-bottom: 12px;
+}
+
+.eligibility-panel h3 {
+  margin-bottom: 14px;
+  color: var(--paper);
+  font-size: 1.4rem;
+}
+
+.eligibility-panel p:not(.eyebrow) {
+  color: #c2ccda;
+  font-size: .95rem;
+}
+
+.eligibility-panel p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================
+   INSTITUTIONAL OUTREACH
+   ========================================= */
 
 .share-note {
   padding: 22px 23px;
@@ -814,12 +998,6 @@ h2 {
 
 .share-note a {
   overflow-wrap: anywhere;
-}
-
-.audience-footnote {
-  margin: 22px 0 0;
-  color: #92a0b3;
-  font-size: .83rem;
 }
 
 
@@ -897,15 +1075,17 @@ h2 {
   animation: modal-enter .25s ease both;
 }
 
-/* Blurred background */
 
-.application-modal::backdrop {
+/* =========================================
+   SHARED MODAL BACKDROP
+   ========================================= */
+
+.application-modal::backdrop,
+.poster-modal::backdrop {
   background: rgba(3,7,14,.76);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
-
-/* Modal entrance animation */
 
 @keyframes modal-enter {
   from {
@@ -919,7 +1099,10 @@ h2 {
   }
 }
 
-/* Modal branding and heading */
+
+/* =========================================
+   APPLICATION MODAL HEADER
+   ========================================= */
 
 .modal-header {
   position: relative;
@@ -958,7 +1141,10 @@ h2 {
   font-size: .9rem;
 }
 
-/* Close button */
+
+/* =========================================
+   SHARED MODAL CLOSE BUTTON
+   ========================================= */
 
 .modal-close {
   position: absolute;
@@ -983,7 +1169,10 @@ h2 {
   background: rgba(255,255,255,.16);
 }
 
-/* Microsoft Forms embed */
+
+/* =========================================
+   MICROSOFT FORMS EMBED
+   ========================================= */
 
 .modal-form-container {
   flex: 1 0 auto;
@@ -999,8 +1188,6 @@ h2 {
   border: 0;
   background: #ffffff;
 }
-
-/* Modal footer */
 
 .modal-footer {
   flex-shrink: 0;
@@ -1019,6 +1206,94 @@ h2 {
 .modal-footer a {
   color: var(--blue-light);
   font-size: .76rem;
+}
+
+
+/* =========================================
+   RESEARCH POSTER MODAL
+   ========================================= */
+
+.poster-modal {
+  width: min(1600px, calc(100% - 48px));
+  height: 92vh;
+  height: 92dvh;
+  max-width: none;
+  max-height: none;
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(139,215,255,.24);
+  border-radius: 20px;
+  color: var(--paper);
+  background: #111d2e;
+  box-shadow: 0 30px 100px rgba(0,0,0,.65);
+}
+
+.poster-modal[open] {
+  display: flex;
+  flex-direction: column;
+  animation: modal-enter .25s ease both;
+}
+
+.poster-modal-header {
+  position: relative;
+  flex-shrink: 0;
+  padding: 22px 80px 22px 28px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(
+    120deg,
+    #172c43,
+    #101b2b
+  );
+}
+
+.poster-modal-heading .eyebrow {
+  margin-bottom: 10px;
+}
+
+.poster-modal-heading h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+}
+
+.poster-viewer {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: #343a43;
+}
+
+.poster-viewer iframe {
+  display: block;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  border: 0;
+}
+
+.poster-modal-footer {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 15px 28px;
+  border-top: 1px solid var(--line);
+  background: #0d1523;
+}
+
+.poster-modal-footer p {
+  margin: 0;
+  color: #c3cfdd;
+  font-size: .8rem;
+}
+
+.poster-modal-footer a {
+  color: var(--blue-light);
+  font-size: .8rem;
 }
 
 
@@ -1073,12 +1348,20 @@ h2 {
    ========================================= */
 
 .reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity .65s ease, transform .65s ease;
+  opacity: 1;
+  transform: none;
 }
 
-.reveal.is-visible {
+.reveal.reveal-pending {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity .65s ease,
+    transform .65s ease;
+}
+
+.reveal.is-visible,
+.reveal:focus-within {
   opacity: 1;
   transform: translateY(0);
 }
@@ -1087,6 +1370,11 @@ a:focus-visible,
 button:focus-visible {
   outline: 3px solid var(--gold);
   outline-offset: 4px;
+}
+
+.research-card-link:focus-visible {
+  outline: 3px solid #176b9e;
+  outline-offset: -4px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1103,10 +1391,12 @@ button:focus-visible {
     transition-duration: .01ms !important;
   }
 
-  .reveal {
+  .reveal,
+  .reveal.reveal-pending {
     opacity: 1;
     transform: none;
   }
+
 }
 
 
@@ -1145,8 +1435,10 @@ button:focus-visible {
     object-position: 56% center;
   }
 
-  .experience-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .experience-grid,
+  .research-grid,
+  .program-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .outcomes {
@@ -1156,6 +1448,7 @@ button:focus-visible {
   .audience-details {
     gap: 25px;
   }
+
 }
 
 
@@ -1205,7 +1498,10 @@ button:focus-visible {
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
-    transition: opacity .22s ease, transform .22s ease, visibility .22s ease;
+    transition:
+      opacity .22s ease,
+      transform .22s ease,
+      visibility .22s ease;
   }
 
   .nav-links.is-open {
@@ -1248,8 +1544,16 @@ button:focus-visible {
 
   .hero::before {
     background:
-      linear-gradient(90deg, rgba(4,8,15,.95), rgba(4,8,15,.72)),
-      linear-gradient(0deg, rgba(4,8,15,.92), transparent 65%);
+      linear-gradient(
+        90deg,
+        rgba(4,8,15,.95),
+        rgba(4,8,15,.72)
+      ),
+      linear-gradient(
+        0deg,
+        rgba(4,8,15,.92),
+        transparent 65%
+      );
   }
 
   .hero-content {
@@ -1328,8 +1632,24 @@ button:focus-visible {
     padding: 29px;
   }
 
-  .topics-panel {
+  .research-grid,
+  .interest-grid,
+  .program-grid {
     grid-template-columns: 1fr;
+  }
+
+  .research-card-content,
+  .interest-card,
+  .eligibility-panel {
+    padding: 22px;
+  }
+
+  .research-grid {
+    gap: 18px;
+  }
+
+  .research-visual {
+    padding: 10px;
   }
 
   .audience-details {
@@ -1353,6 +1673,7 @@ button:focus-visible {
     align-items: flex-start;
     flex-direction: column;
   }
+
 
   /* Mobile application modal */
 
@@ -1388,6 +1709,32 @@ button:focus-visible {
   .modal-footer {
     padding: 14px 18px;
   }
+
+
+  /* Mobile research poster modal */
+
+  .poster-modal {
+    width: calc(100% - 16px);
+    height: 95vh;
+    height: 95dvh;
+    border-radius: 14px;
+  }
+
+  .poster-modal-header {
+    padding: 18px 65px 18px 18px;
+  }
+
+  .poster-modal-heading h2 {
+    font-size: 1.2rem;
+  }
+
+  .poster-modal-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 12px 18px;
+  }
+
 }
 
 
@@ -1449,4 +1796,13 @@ button:focus-visible {
   .modal-logo {
     width: 165px;
   }
+
+  .poster-modal-heading h2 {
+    font-size: 1.05rem;
+  }
+
+  .poster-modal-heading .eyebrow {
+    font-size: .65rem;
+  }
+
 }
